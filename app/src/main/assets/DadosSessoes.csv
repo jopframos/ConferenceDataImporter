@@ -1,4 +1,4 @@
-Date|Start|End|Room|Track|Title|Presenter|Abstract
+date|start|end|room|track|title|presenter|brief
 2015/02/12|08:30|11:00|Entrance||Registration at the conference venue||Please present the student ID if registered as student.
 2015/02/12|11:00|12:00|Auditorium||Keynote: "On the State of Software Engineering"|Dr. James T. Kirk|Software has been made. Software is still being made. Software will be made. That is a certainty. What is not a certainty is how the software will be made. Right from the start of the programmable device availability, the complexity of the software development has been increasing, reaching a current complexity so large that a single developer can no longer completely understand the workings of one simple system. We have to question ourselves: how can we, mere humans, cope with that growth in complexity and still develop simple solutions?
 2015/02/12|12:00|14:00|||Lunch Break||

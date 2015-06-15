@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
@@ -72,12 +73,22 @@ public class MainActivity extends Activity {
         while ((line=br.readLine())!=null) {
 
             String[] parts = line.split("\\|",-1); // separar os diversos valores de uma sess�o
-            for (int i=0; i<campos.length; i++) {
+
+            String[] date = parts[0].split("/", -1);
+            String[] start = parts[1].split(":", -1);
+            String[] end = parts[2].split(":", -1);
+            GregorianCalendar startDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1])-1, Integer.parseInt(date[2]), Integer.parseInt(start[0]), Integer.parseInt(start[1]));
+            GregorianCalendar endDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1])-1, Integer.parseInt(date[2]), Integer.parseInt(end[0]), Integer.parseInt(end[1]));
+
+            sessions.put("startDate", String.valueOf(startDate.getTimeInMillis()));
+            sessions.put("endDate", String.valueOf(endDate.getTimeInMillis()));
+
+            for (int i=3; i<campos.length; i++) {
                 sessions.put(campos[i], parts[i]); // definir o valor de cada campo
-                System.out.println("Session " + campos[i] + " : " + parts[i]);
+                //System.out.println("Session " + campos[i] + " : " + parts[i]);
             }
 
-            fb.child("Conferences").child(key).child("Sessions").push().setValue(sessions);
+            fb.child("Conferences").child(key).child("sessions").push().setValue(sessions);
             sessions.clear();
         }
     }

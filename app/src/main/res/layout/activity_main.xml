@@ -15,7 +15,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:hint="@string/firebase_url"
-        android:text="https://popping-fire-3677.firebaseio.com/" />
+        android:text="https://by-invit-only.firebaseio.com/" />
 
     <Button
         android:layout_width="wrap_content"
